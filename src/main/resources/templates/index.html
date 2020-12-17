@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>HELLO WORLD</title>
+   <!-- <script type="text/javascript" th:src="@{mystatic/jquery-3.5.1.js}"></script>-->
+    <script type="text/javascript" src="static/vue.js"></script>
+</head>
+<body>
+    <!--<h1>HELLO WORLD</h1>
+    <span th:text="${name}" th:name="name"></span>-->
+    <div id="vue_det">
+        <h1 v-html="title"></h1>
+        <h6 v-text="url"></h6>
+        <input v-model="site" />
+        <a v-bind:href="url" >百度</a>
+        <h6>site : {{site}}</h6>
+        <h6>{{details()}}</h6>
+        <button v-on:click="doReverse">Title反转</button>
+        <h2>{{ site | capitalize }}</h2>
+        <div v-text="a" v-if="aCondtion"></div>
+        <div v-text="b" v-else-if="bCondtion"></div>
+        <div v-text="c" v-else></div>
+        <div v-show="false">v-show</div>
+        <div v-for="v in sites">
+            <h1>{{v.name}}</h1>
+        </div>
+        <div v-for="v in object">
+            <h1>{{v}}</h1>
+        </div>
+        <div v-for="(value, key) in object">
+            <h1>{{key}}:{{value}}</h1>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#vue_det',
+        data: {
+            site: "rrrqqq123",
+            url: "http://www.runoob.com",
+            alexa: "10000",
+            title: "Vue测试",
+            a:"A",
+            aCondtion:false,
+            b:"B",
+            bCondtion:false,
+            c:"C",
+            sites: [
+                { name: 'Runoob' },
+                { name: 'Google' },
+                { name: 'Taobao' }
+            ],
+            object: {
+                name: '菜鸟教程',
+                url: 'http://www.runoob.com',
+                slogan: '学的不仅是技术，更是梦想！'
+            }
+        },
+        methods: {
+            details: function() {
+                return  this.site + " - 学的不仅是技术，更是梦想！";
+            },
+            doReverse: function () {
+                this.title = this.title.split("").reverse().join("");
+            }
+        },
+        filters:{
+            capitalize: function (value) {
+                if (!value) return ''
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
+        },
+        watch:{
+            site:function () {
+                alert("site已修改");
+            }
+        }
+    })
+</script>
+</html>
