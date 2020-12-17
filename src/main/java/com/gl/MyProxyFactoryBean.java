@@ -12,8 +12,13 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
  * @author 郭亮
  * @date 2020/11/9 18:52
  **/
-public class Test{
+public class MyProxyFactoryBean{
 
+    /**
+     * 主要
+     *
+     * @param args arg游戏
+     */
     public static void main(String[] args) {
         String pointcutExpression = "execution( int com.gl.Person.run() )";
 
@@ -26,7 +31,8 @@ public class Test{
 
         //声明一个aspectj切点,一张切面
         AspectJExpressionPointcut cut = new AspectJExpressionPointcut();
-        cut.setExpression(pointcutExpression); // 设置切点表达式
+        // 设置切点表达式
+        cut.setExpression(pointcutExpression);
 
         // 声明一个通知（此处使用环绕通知 MethodInterceptor ）
         Advice advice = (MethodInterceptor) invocation -> {
@@ -54,24 +60,55 @@ public class Test{
     }
 }
 
+/**
+ * 人
+ *
+ * @author 郭亮
+ * @date 2020/12/17
+ */
 class Person {
+    /**
+     * 运行
+     *
+     * @return int
+     */
     public int run() {
         System.out.println("我在run...");
         return 0;
     }
 
+    /**
+     * 运行
+     *
+     * @param i 我
+     */
     public void run(int i) {
         System.out.println("我在run...<" + i + ">");
     }
 
+    /**
+     * 说
+     */
     public void say() {
         System.out.println("我在say...");
     }
 
+    /**
+     * 打个招呼
+     *
+     * @param name 的名字
+     */
     public void sayHi(String name) {
         System.out.println("Hi," + name + ",你好");
     }
 
+    /**
+     * 说
+     *
+     * @param name 的名字
+     * @param i    我
+     * @return int
+     */
     public int say(String name, int i) {
         System.out.println(name + "----" + i);
         return 0;
