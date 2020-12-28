@@ -40,6 +40,7 @@ public class IndexController {
     public ModelAndView vue() {
         ModelAndView mav = new ModelAndView("vue");
         mav.addObject("name", "kfsz");
+        System.out.println("456");
         return mav;
     }
 
