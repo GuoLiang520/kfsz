@@ -1,5 +1,6 @@
 package com.gl.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.gl.entity.Eaj;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,26 @@ public class IndexController {
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("name", "kfsz");
         return mav;
+    }
+
+    /**
+     * 指数
+     *
+     * @return {@link ModelAndView}
+     */
+    @RequestMapping(value = "vue.do")
+    public ModelAndView vue() {
+        ModelAndView mav = new ModelAndView("vue");
+        mav.addObject("name", "kfsz");
+        return mav;
+    }
+
+    @RequestMapping(value = "getData.do")
+    @ResponseBody
+    public Object getData(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", "zhangsan");
+        return jsonObject;
     }
 
     /**

@@ -1,10 +1,14 @@
 package com.gl.controller;
 
+import com.gl.entity.Employee;
 import com.gl.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.validation.Valid;
 
 /**
  * 
@@ -48,5 +52,17 @@ public class TestController {
     @ResponseBody
     public Object getJpa(String ahdm){
         return testService.getJpa(ahdm);
+    }
+
+
+    @RequestMapping(value = "/getEmployee.do")
+    @ResponseBody
+    public Object getEmployee(@Valid Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
+            result.getAllErrors().forEach(a->{
+                System.out.println(a.getDefaultMessage());
+            });
+        }
+        return employee;
     }
 }
