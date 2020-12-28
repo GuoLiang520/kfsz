@@ -45,5 +45,6 @@ public class Eaj implements Serializable {
 
     @XmlElementWrapper
     @XmlElement(name = "test")
+    @Transient
     private List<Test> tests;
 }
