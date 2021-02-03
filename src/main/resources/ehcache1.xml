@@ -15,7 +15,7 @@
 
     <cache alias="eaj" uses-template="default">
         <expiry>
-            <ttl>600</ttl>
+            <none/>
         </expiry>
     </cache>
 

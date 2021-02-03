@@ -43,6 +43,8 @@ public class Eaj implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
+    private Integer xla;
+
     @XmlElementWrapper
     @XmlElement(name = "test")
     @Transient

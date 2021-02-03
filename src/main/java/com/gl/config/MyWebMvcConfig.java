@@ -13,9 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import java.util.List;
 
 /**
- * 
+ *
  * @author 郭亮
- * @date 2020/9/27 16:04 
+ * @date 2020/9/27 16:04
  **/
 @Configuration
 public class MyWebMvcConfig extends WebMvcConfigurationSupport {
@@ -68,4 +68,14 @@ public class MyWebMvcConfig extends WebMvcConfigurationSupport {
         return corsConfiguration;
     }*/
 
+
+/*    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new HandlerInterceptor() {
+            @Override
+            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+                return false;
+            }
+        });
+    }*/
 }

@@ -1,0 +1,9 @@
+[{
+  "jobName": "job1",
+  "classname": "com.gl.scheduler.MyScheduler1",
+  "corn": "0/10 * * ? * * "
+},{
+  "jobName": "job2",
+  "classname": "com.gl.scheduler.MyScheduler2",
+  "corn": "0/20 * * ? * *"
+}]

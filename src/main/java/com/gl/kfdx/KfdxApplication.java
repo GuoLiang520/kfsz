@@ -7,6 +7,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan("com.gl")
 @ServletComponentScan("com.gl.config.webmvc")
 //@EnableRedisHttpSession
+@EnableAspectJAutoProxy
 public class KfdxApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
